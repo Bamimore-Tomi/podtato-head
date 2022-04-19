@@ -17,7 +17,7 @@ RUN go mod download
 COPY . .
 RUN go build -o /serve-${PART} ./cmd/parts
 
-EXPOSE 9000
+EXPOSE ${PODTATO_PORT}
 
 FROM scratch
 ARG GITHUB_USER=podtato-head

@@ -16,6 +16,7 @@
 # set common variables
 declare -r this_dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
 declare -r app_dir=$(cd ${this_dir}/.. && pwd)
+echo "THIS IS THE APP DIR ${app_dir}"
 declare -r root_dir=$(cd ${this_dir}/../.. && pwd)
 if [[ -e ${root_dir}/.env ]]; then 
     echo "INFO: sourcing env vars from .env in repo root"
@@ -63,7 +64,7 @@ fi
 
 ### build, push and sign entry container
 if [[ -z "${RELEASE_BUILD}" ]]; then
-    container_name=${registry}/${github_user}/podtato-head/entry
+    container_name=${registry}/${github_user}podtato-head/entry
 else
     container_name=${registry}/speedscale/podtato-head/entry
 fi
@@ -100,7 +101,7 @@ fi
 parts=($(find ${app_dir}/pkg/assets/images/* -type d -exec basename -a {} +))
 for part in "${parts[@]}"; do
     if [[ -z "${RELEASE_BUILD}" ]]; then
-        container_name=${registry}/${github_user}/podtato-head/${part}
+        container_name=${registry}/${github_user}podtato-head/${part}
     else
         container_name=${registry}/speedscale/podtato-head/${part}
     fi

@@ -1,0 +1,44 @@
+version: ‘3.9’
+services:
+  podtato-head-entry:
+    build:
+      dockerfile: ./cmd/entry/Dockerfile
+    ports:
+      - "9000:9000"
+    environment:
+      - PODTATO_PORT=9000
+  podtato-head-hat:
+    build:
+      dockerfile: ./cmd/parts/Dockerfile
+    ports:
+      - "9001:9001"
+    environment:
+      - PODTATO_PORT=9001
+  podtato-head-left-leg:
+    build:
+      dockerfile: ./cmd/parts/Dockerfile
+    ports:
+      - "9002:9002"
+    environment:
+      - PODTATO_PORT=9002
+  podtato-head-left-arm:
+    build:
+      dockerfile: ./cmd/parts/Dockerfile
+    ports:
+      - "9003:9003"
+    environment:
+      - PODTATO_PORT=9003
+  podtato-head-right-leg:
+    build:
+      dockerfile: ./cmd/parts/Dockerfile
+    ports:
+      - "9004:9004"
+    environment:
+      - PODTATO_PORT=9004
+  podtato-head-right-arm:
+    build:
+      dockerfile: ./cmd/parts/Dockerfile
+    ports:
+      - "9005:9005"
+    environment:
+      - PODTATO_PORT=9005
