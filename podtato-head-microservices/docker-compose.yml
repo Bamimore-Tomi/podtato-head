@@ -8,7 +8,6 @@ services:
       - "9000:9000"
     environment:
       - PODTATO_PORT=9000
-      - HTTP_PROXY=socks5://127.0.0.1:4143
   podtato-head-hat:
     build:
       context: .
@@ -23,6 +22,7 @@ services:
       dockerfile: ./cmd/parts/Dockerfile
     ports:
       - "9002:9002"
+
     environment:
       - PODTATO_PORT=9002
   podtato-head-left-arm:
@@ -39,6 +39,7 @@ services:
       dockerfile: ./cmd/parts/Dockerfile
     ports:
       - "9004:9004"
+
     environment:
       - PODTATO_PORT=9004
   podtato-head-right-arm:
