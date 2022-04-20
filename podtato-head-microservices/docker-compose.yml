@@ -9,6 +9,7 @@ services:
       - "9000:9000"
     environment:
       - PODTATO_PORT=9000
+      - HTTP_PROXY=socks5://127.0.0.1:4143
   podtato-head-hat:
     build:
       context: .
